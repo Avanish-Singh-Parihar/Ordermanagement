@@ -1,0 +1,29 @@
+@model IEnumerable<ordermanagement.Models.Order>
+
+@{
+    ViewBag.Title = "Orders List";
+}
+
+<h2>Orders</h2>
+
+<p>
+    @Html.ActionLink("Create New Order", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.First().ProductName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Quantity)</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+        <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.OrderId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.OrderId })
+        </td>
+    </tr>
+}
+</table>
