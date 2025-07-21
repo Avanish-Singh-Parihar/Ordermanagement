@@ -1,0 +1,23 @@
+@model IEnumerable<OrderManagement.Models.Order>
+
+<h2>Orders</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.Id</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.DeliveryStatus</td>
+            </tr>
+        }
+    </tbody>
+</table>
